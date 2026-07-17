@@ -93,13 +93,13 @@ export const CarouselModal: React.FC<CarouselModalProps> = ({
     }
   };
 
-  // Badge configurations based on Bento Grid design (Black, White, and Orange theme)
+  // Badge configurations based on Bento Grid design (Black, White, and Amber theme)
   const getHighlightConfig = (highlight: TournamentHighlight) => {
     switch (highlight) {
       case TournamentHighlight.CHAMPION:
         return {
           label: '1º Lugar - Campeão',
-          badgeClass: 'bg-orange-500 border-orange-500 text-black font-black shadow-lg shadow-orange-500/10',
+          badgeClass: 'bg-amber-500 border-amber-500 text-black font-black shadow-lg shadow-amber-500/10',
           dotClass: 'bg-black',
           icon: <Crown className="w-3.5 h-3.5 text-black" />
         };
@@ -113,9 +113,9 @@ export const CarouselModal: React.FC<CarouselModalProps> = ({
       case TournamentHighlight.THIRD_PLACE:
         return {
           label: '3º Lugar',
-          badgeClass: 'bg-zinc-900 border-orange-500/30 text-orange-400 font-bold',
-          dotClass: 'bg-orange-500',
-          icon: <Medal className="w-3.5 h-3.5 text-orange-400" />
+          badgeClass: 'bg-zinc-900 border-amber-500/30 text-amber-400 font-bold',
+          dotClass: 'bg-amber-500',
+          icon: <Medal className="w-3.5 h-3.5 text-amber-400" />
         };
       case TournamentHighlight.STANDARD:
       default:
@@ -159,7 +159,7 @@ export const CarouselModal: React.FC<CarouselModalProps> = ({
       <div
         ref={modalRef}
         id="carousel-modal-container"
-        className="relative w-full max-w-5xl bg-zinc-950 text-zinc-100 rounded-3xl border border-zinc-900 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.7),0_0_40px_rgba(0,0,0,0.3)] flex flex-col overflow-hidden z-10 my-4 max-h-[92vh]"
+        className="relative w-full max-w-5xl bg-zinc-950 text-zinc-100 rounded-3xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.7),0_0_40px_rgba(0,0,0,0.3)] flex flex-col overflow-hidden z-10 my-4 max-h-[92vh]"
       >
         {/* Tournament Info Top Bar */}
         <div className="px-6 md:px-8 py-4 bg-white border-b border-zinc-200 flex items-center justify-between">
@@ -172,12 +172,12 @@ export const CarouselModal: React.FC<CarouselModalProps> = ({
                 className="w-full h-full object-contain p-1"
                 referrerPolicy="no-referrer"
                 onError={(e) => {
-                  // If image fails, replace with dynamic elegant orange icon representation
+                  // If image fails, replace with dynamic elegant golden icon representation
                   e.currentTarget.style.display = 'none';
                   const parent = e.currentTarget.parentElement;
                   if (parent) {
                     const fallback = document.createElement('span');
-                    fallback.className = 'text-orange-500 text-2xl font-bold font-mono';
+                    fallback.className = 'text-amber-500 text-2xl font-bold font-mono';
                     fallback.innerText = '♞';
                     parent.appendChild(fallback);
                   }
@@ -188,9 +188,9 @@ export const CarouselModal: React.FC<CarouselModalProps> = ({
               {tournamentTitle}
             </span>
           </div>
-          <div className="flex items-center gap-1.5 bg-orange-500/10 px-3 py-1.5 rounded-full border border-orange-500/20">
-            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse"></span>
-            <span className="text-[10px] text-orange-600 font-bold font-mono tracking-wider">MODAL ATIVA</span>
+          <div className="flex items-center gap-1.5 bg-zinc-50 px-3 py-1.5 rounded-full border border-zinc-200">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span className="text-[10px] text-zinc-600 font-bold font-mono tracking-wider">MODAL ATIVA</span>
           </div>
         </div>
 
@@ -202,9 +202,14 @@ export const CarouselModal: React.FC<CarouselModalProps> = ({
                 <span>{activePlayer.name}</span>
                 <span className="text-zinc-400 font-mono text-lg font-bold">({activePlayer.rating})</span>
               </h1>
-              <span className="text-zinc-500 text-xs tracking-widest uppercase mt-0.5 font-semibold">
-                {activePlayer.title} • {activePlayer.city}
-              </span>
+              <div className="flex items-center gap-2.5 mt-2 flex-wrap">
+                <span className="inline-flex items-center px-2 py-0.5 rounded bg-black text-white border border-white/80 text-[10px] font-extrabold font-mono uppercase tracking-wider">
+                  {activePlayer.title}
+                </span>
+                <span className="text-zinc-500 text-xs tracking-widest uppercase font-semibold">
+                  {activePlayer.city}
+                </span>
+              </div>
             </div>
             
             {/* Live Highlight Status Badge */}
@@ -234,7 +239,7 @@ export const CarouselModal: React.FC<CarouselModalProps> = ({
           <div className="col-span-1 md:col-span-4 bg-zinc-950 rounded-2xl relative overflow-hidden group border border-zinc-900 flex flex-col justify-between p-4 min-h-[300px]">
             {/* Subtle Chess Piece Backdrop Pattern */}
             <div className="absolute inset-0 opacity-5 flex items-center justify-center pointer-events-none select-none">
-              <span className="text-9xl text-orange-500/10">♔</span>
+              <span className="text-9xl text-amber-500/10">♔</span>
             </div>
 
             {/* Carousel Picture Box */}
@@ -257,7 +262,7 @@ export const CarouselModal: React.FC<CarouselModalProps> = ({
               <div className="absolute bottom-3 left-3 right-3 bg-black/90 backdrop-blur-md rounded-lg p-2.5 border border-zinc-900 flex items-center justify-between">
                 <div>
                   <p className="text-[10px] text-zinc-500 font-bold uppercase tracking-wider">Rating FIDE</p>
-                  <p className="text-sm font-mono font-bold text-orange-500">{activePlayer.rating} ELO</p>
+                  <p className="text-sm font-mono font-bold text-amber-500">{activePlayer.rating} ELO</p>
                 </div>
                 <div className="text-right">
                   <p className="text-[10px] text-zinc-500 font-bold uppercase tracking-wider">Idade</p>
@@ -270,9 +275,9 @@ export const CarouselModal: React.FC<CarouselModalProps> = ({
             <div className="mt-3 flex items-center justify-between">
               <button
                 onClick={handlePrev}
-                className="p-2 bg-zinc-900 hover:bg-zinc-800 text-zinc-300 hover:text-white rounded-lg transition-all border border-zinc-800 text-xs font-semibold flex items-center gap-1 hover:border-orange-500/25"
+                className="p-2 bg-zinc-900 hover:bg-zinc-800 text-zinc-300 hover:text-white rounded-lg transition-all border border-zinc-800 text-xs font-semibold flex items-center gap-1 hover:border-amber-500/25"
               >
-                <ChevronLeft className="w-4 h-4 text-orange-500" />
+                <ChevronLeft className="w-4 h-4 text-amber-500" />
                 <span>Anterior</span>
               </button>
 
@@ -282,7 +287,7 @@ export const CarouselModal: React.FC<CarouselModalProps> = ({
                     key={p.id}
                     onClick={() => onSelectPlayer(p.id)}
                     className={`h-1.5 rounded-full transition-all duration-300 ${
-                      p.id === activePlayer.id ? 'w-4 bg-orange-500' : 'w-1.5 bg-zinc-800 hover:bg-zinc-700'
+                      p.id === activePlayer.id ? 'w-4 bg-amber-500' : 'w-1.5 bg-zinc-800 hover:bg-zinc-700'
                     }`}
                     title={p.name}
                   />
@@ -291,10 +296,10 @@ export const CarouselModal: React.FC<CarouselModalProps> = ({
 
               <button
                 onClick={handleNext}
-                className="p-2 bg-zinc-900 hover:bg-zinc-800 text-zinc-300 hover:text-white rounded-lg transition-all border border-zinc-800 text-xs font-semibold flex items-center gap-1 hover:border-orange-500/25"
+                className="p-2 bg-zinc-900 hover:bg-zinc-800 text-zinc-300 hover:text-white rounded-lg transition-all border border-zinc-800 text-xs font-semibold flex items-center gap-1 hover:border-amber-500/25"
               >
                 <span>Próximo</span>
-                <ChevronRight className="w-4 h-4 text-orange-500" />
+                <ChevronRight className="w-4 h-4 text-amber-500" />
               </button>
             </div>
           </div>
@@ -305,16 +310,12 @@ export const CarouselModal: React.FC<CarouselModalProps> = ({
             <div className="bg-zinc-900/30 p-6 rounded-2xl border border-zinc-900 flex-1 flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-2 mb-3">
-                  <BookOpen className="w-4 h-4 text-orange-500" />
+                  <BookOpen className="w-4 h-4 text-amber-500" />
                   <h3 className="text-xs font-bold text-zinc-400 uppercase tracking-widest">Trajetória</h3>
                 </div>
                 <p className="text-zinc-300 leading-relaxed text-sm">
                   {activePlayer.trajectory}
                 </p>
-              </div>
-              <div className="mt-4 pt-3 border-t border-zinc-900/60 flex items-center justify-between text-xs text-zinc-500">
-                <span>Federação de origem</span>
-                <span className="font-semibold text-zinc-300">{activePlayer.city.split(' - ')[1] || 'BR'}</span>
               </div>
             </div>
             
@@ -323,7 +324,7 @@ export const CarouselModal: React.FC<CarouselModalProps> = ({
               <div className="bg-zinc-900/30 p-5 rounded-2xl border border-zinc-900 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center gap-2 mb-2">
-                    <Compass className="w-3.5 h-3.5 text-orange-500/80" />
+                    <Compass className="w-3.5 h-3.5 text-amber-500/80" />
                     <h3 className="text-[10px] font-bold text-zinc-400 uppercase tracking-wider">Descoberta</h3>
                   </div>
                   <p className="text-xs text-zinc-300 leading-relaxed italic">
@@ -335,11 +336,11 @@ export const CarouselModal: React.FC<CarouselModalProps> = ({
               <div className="bg-zinc-900/30 p-5 rounded-2xl border border-zinc-900 flex flex-col justify-center min-h-[105px]">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
-                    <Sparkles className="w-3.5 h-3.5 text-orange-500/80" />
+                    <Sparkles className="w-3.5 h-3.5 text-amber-500/80" />
                     <h3 className="text-[10px] font-bold text-zinc-400 uppercase tracking-wider">Maior Ídolo</h3>
                   </div>
                   <div className="flex justify-center items-center py-2">
-                    <p className="font-calligraphy text-3xl md:text-4xl text-orange-400 font-medium tracking-wide drop-shadow-[0_2px_10px_rgba(249,115,22,0.15)] text-center">
+                    <p className="font-calligraphy text-3xl md:text-4xl text-amber-400 font-medium tracking-wide drop-shadow-[0_2px_10px_rgba(245,158,11,0.15)] text-center">
                       {getIdolNameOnly(activePlayer.idol)}
                     </p>
                   </div>
@@ -350,11 +351,11 @@ export const CarouselModal: React.FC<CarouselModalProps> = ({
 
           {/* Bento Box 3: Right Column - Goals, Achievements & Official IDs (col-span-3) */}
           <div className="col-span-1 md:col-span-3 flex flex-col gap-4">
-            {/* Objectives / Goals Card (Orange-accented elegant block) */}
-            <div className="bg-orange-500/5 p-5 rounded-2xl border border-orange-500/20">
+            {/* Objectives / Goals Card (Amber-accented elegant block) */}
+            <div className="bg-amber-500/5 p-5 rounded-2xl border border-amber-500/20">
               <div className="flex items-center gap-2 mb-2">
-                <HelpCircle className="w-3.5 h-3.5 text-orange-400" />
-                <h3 className="text-[10px] font-bold text-orange-400 uppercase tracking-wider">Objetivos</h3>
+                <HelpCircle className="w-3.5 h-3.5 text-amber-400" />
+                <h3 className="text-[10px] font-bold text-amber-400 uppercase tracking-wider">Objetivos</h3>
               </div>
               <p className="text-xs text-zinc-200 italic leading-relaxed">
                 "{activePlayer.goals}"
@@ -364,13 +365,13 @@ export const CarouselModal: React.FC<CarouselModalProps> = ({
             {/* Achievements Card */}
             <div className="bg-zinc-900/30 p-5 rounded-2xl border border-zinc-900 flex-1">
               <div className="flex items-center gap-2 mb-3">
-                <Trophy className="w-3.5 h-3.5 text-orange-500" />
+                <Trophy className="w-3.5 h-3.5 text-amber-500" />
                 <h3 className="text-[10px] font-bold text-zinc-400 uppercase tracking-wider">Principais Conquistas</h3>
               </div>
               <ul className="space-y-3">
                 {activePlayer.achievements.map((achievement, idx) => (
                    <li key={idx} className="flex gap-2.5 items-start text-xs text-zinc-300">
-                     <div className="w-1.5 h-1.5 bg-orange-500 rounded-full mt-1.5 shrink-0 animate-pulse"></div>
+                     <div className="w-1.5 h-1.5 bg-amber-500 rounded-full mt-1.5 shrink-0 animate-pulse"></div>
                      <span className="leading-tight">{achievement}</span>
                    </li>
                 ))}
@@ -380,37 +381,37 @@ export const CarouselModal: React.FC<CarouselModalProps> = ({
             {/* Official Registration IDs Card */}
             <div className="bg-black p-4 rounded-2xl border border-zinc-900 grid grid-cols-2 gap-2 mt-auto">
               <a 
-                href={`https://www.cbx.org.br/`}
+                href={`https://www.cbx.org.br/jogador/${activePlayer.cbxId}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-zinc-950 p-2.5 rounded-lg border border-zinc-900 hover:bg-zinc-900/40 hover:border-orange-500/30 transition-all cursor-pointer group flex flex-col justify-between"
+                className="bg-zinc-950 p-2.5 rounded-lg border border-zinc-900 hover:bg-zinc-900/40 hover:border-amber-500/30 transition-all cursor-pointer group flex flex-col justify-between"
               >
                 <div>
                   <p className="text-[9px] text-zinc-500 font-bold uppercase tracking-wider flex items-center gap-1 group-hover:text-zinc-400 transition-colors">
-                    <Hash className="w-3 h-3 text-zinc-600 group-hover:text-orange-500/80 transition-colors" />
+                    <Hash className="w-3 h-3 text-zinc-600 group-hover:text-amber-500/80 transition-colors" />
                     <span>ID CBX</span>
                   </p>
-                  <p className="font-mono text-xs text-zinc-300 font-bold mt-1 group-hover:text-orange-400 transition-colors">{activePlayer.cbxId}</p>
+                  <p className="font-mono text-xs text-zinc-300 font-bold mt-1 group-hover:text-amber-400 transition-colors">{activePlayer.cbxId}</p>
                 </div>
                 <div className="flex justify-end mt-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                  <ExternalLink className="w-2.5 h-2.5 text-orange-500/80" />
+                  <ExternalLink className="w-2.5 h-2.5 text-amber-500/80" />
                 </div>
               </a>
               <a 
                 href={`https://ratings.fide.com/profile/${activePlayer.fideId}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-zinc-950 p-2.5 rounded-lg border border-zinc-900 hover:bg-zinc-900/40 hover:border-orange-500/30 transition-all cursor-pointer group flex flex-col justify-between"
+                className="bg-zinc-950 p-2.5 rounded-lg border border-zinc-900 hover:bg-zinc-900/40 hover:border-amber-500/30 transition-all cursor-pointer group flex flex-col justify-between"
               >
                 <div>
                   <p className="text-[9px] text-zinc-500 font-bold uppercase tracking-wider flex items-center gap-1 group-hover:text-zinc-400 transition-colors">
-                    <Globe className="w-3 h-3 text-zinc-600 group-hover:text-orange-500/80 transition-colors" />
+                    <Globe className="w-3 h-3 text-zinc-600 group-hover:text-amber-500/80 transition-colors" />
                     <span>ID FIDE</span>
                   </p>
-                  <p className="font-mono text-xs text-zinc-300 font-bold mt-1 group-hover:text-orange-400 transition-colors">{activePlayer.fideId}</p>
+                  <p className="font-mono text-xs text-zinc-300 font-bold mt-1 group-hover:text-amber-400 transition-colors">{activePlayer.fideId}</p>
                 </div>
                 <div className="flex justify-end mt-1 opacity-0 group-hover:opacity-100 transition-opacity">
-                  <ExternalLink className="w-2.5 h-2.5 text-orange-500/80" />
+                  <ExternalLink className="w-2.5 h-2.5 text-amber-500/80" />
                 </div>
               </a>
             </div>
@@ -425,13 +426,13 @@ export const CarouselModal: React.FC<CarouselModalProps> = ({
           <div className="flex gap-3">
             <button
               onClick={handlePrev}
-              className="px-5 py-2 bg-zinc-900 hover:bg-zinc-800 text-zinc-300 hover:text-white rounded-full text-xs font-bold transition-all border border-zinc-800 uppercase tracking-wider hover:border-orange-500/20"
+              className="px-5 py-2 bg-zinc-900 hover:bg-zinc-800 text-zinc-300 hover:text-white rounded-full text-xs font-bold transition-all border border-zinc-800 uppercase tracking-wider hover:border-amber-500/20"
             >
               Anterior
             </button>
             <button
               onClick={handleNext}
-              className="px-5 py-2 bg-orange-500 hover:bg-orange-400 text-black rounded-full text-xs font-black transition-all uppercase tracking-wider shadow-lg shadow-orange-500/10"
+              className="px-5 py-2 bg-amber-500 hover:bg-amber-400 text-black rounded-full text-xs font-black transition-all uppercase tracking-wider shadow-lg shadow-amber-500/10"
             >
               Próximo Jogador
             </button>
