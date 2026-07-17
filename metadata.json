@@ -1,0 +1,6 @@
+{
+  "name": "Perfis de Jogadores de Xadrez",
+  "description": "Uma plataforma de apresentação e visualização de perfis de enxadristas de um torneio de xadrez, com detalhes de suas trajetórias, conquistas, IDs CBX/FIDE e um carrossel interativo.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
