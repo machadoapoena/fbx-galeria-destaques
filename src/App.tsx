@@ -4,9 +4,9 @@ import { CarouselModal } from './components/CarouselModal';
 import { Search } from 'lucide-react';
 
 export default function App() {
-  // Get tournament ID from query params (defaults to 'nacional-2026' for a polished fallback experience)
+  // Get tournament ID from query params (defaults to 'fbx-cbc-2025' for a polished fallback experience)
   const urlParams = new URLSearchParams(window.location.search);
-  const rawTournamentId = urlParams.get('tournament') || urlParams.get('tournamentId') || 'nacional-2026';
+  const rawTournamentId = urlParams.get('tournament') || urlParams.get('tournamentId') || 'fbx-cbc-2025';
   const tournamentId = rawTournamentId.toLowerCase();
   
   // Custom tournament logo URL from query params
@@ -58,11 +58,11 @@ export default function App() {
             <p className="text-[10px] font-bold text-orange-600 uppercase tracking-widest">Torneios Disponíveis:</p>
             <div className="space-y-2">
               <a 
-                href="?tournament=nacional-2026" 
+                href="?tournament=fbx-cbc-2025" 
                 className="flex items-center justify-between p-2.5 bg-white hover:bg-zinc-50 border border-zinc-200 hover:border-orange-500/35 rounded-xl text-xs font-semibold text-zinc-700 transition-all hover:text-orange-600 group"
               >
-                <span>Nacional de Xadrez 2026</span>
-                <span className="text-[9px] bg-zinc-100 px-2 py-0.5 rounded text-orange-600 font-mono group-hover:text-orange-500">nacional-2026</span>
+                <span>Campeonato Brasiliense Absoluto 2025</span>
+                <span className="text-[9px] bg-zinc-100 px-2 py-0.5 rounded text-orange-600 font-mono group-hover:text-orange-500">fbx-cbc-2025</span>
               </a>
               <a 
                 href="?tournament=aberto-curitiba" 
