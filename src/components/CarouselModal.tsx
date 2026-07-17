@@ -131,7 +131,7 @@ export const CarouselModal: React.FC<CarouselModalProps> = ({
   const badgeConfig = getHighlightConfig(activePlayer.highlight);
 
   const tournamentNames: Record<string, string> = {
-    'nacional-2026': 'Campeonato Brasiliense Absoluto 2025',
+    'fbx-cbc-2025': 'Campeonato Brasiliense Absoluto 2025',
     'aberto-curitiba': 'ABERTO DE CURITIBA DE XADREZ',
   };
   const tournamentTitle = (tournamentId && tournamentNames[tournamentId]) || 'TABULEIRO DE HONRA';

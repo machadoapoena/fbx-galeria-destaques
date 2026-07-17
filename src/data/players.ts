@@ -20,7 +20,7 @@ export const PLAYERS: Player[] = [
       'Campeão Brasileiro Absoluto de Xadrez (2025)',
       'Medalha de Ouro individual no Campeonato Pan-Americano de Equipes'
     ],
-    tournamentId: 'nacional-2026',
+    tournamentId: 'fbx-cbc-2025',
     supporters: [
       { name: 'Xadrez Nova Geração', type: 'school', logoUrl: 'https://i.imgur.com/UqzSV7l.png' },
       { name: 'Xadrez do Valle', type: 'academy', logoUrl: 'https://i.imgur.com/MXfocTe.png' }
@@ -45,7 +45,7 @@ export const PLAYERS: Player[] = [
       'Vice-Campeã Brasileira Feminina Profissional (2025)',
       'Bicampeã Brasileira Universitária Invicta'
     ],
-    tournamentId: 'nacional-2026',
+    tournamentId: 'fbx-cbc-2025',
     supporters: [
       { name: 'Colégio Catarinense', type: 'school', logoUrl: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=120&h=120' },
       { name: 'Clube de Xadrez de Florianópolis', type: 'club' }
@@ -70,7 +70,7 @@ export const PLAYERS: Player[] = [
       '3º Lugar Geral no Magistral Aberto de Xadrez (2026)',
       'Campeão Pan-Americano da Juventude Sub-18'
     ],
-    tournamentId: 'nacional-2026',
+    tournamentId: 'fbx-cbc-2025',
     supporters: [
       { name: 'Colégio Santo Antônio', type: 'school' },
       { name: 'Academia Mineira de Xadrez', type: 'academy' }
