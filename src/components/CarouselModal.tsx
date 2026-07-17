@@ -307,7 +307,7 @@ export const CarouselModal: React.FC<CarouselModalProps> = ({
           {/* Bento Box 2: Middle Column - Trajectory & Q&A (col-span-5) */}
           <div className="col-span-1 md:col-span-5 flex flex-col gap-4">
             {/* Trajectory Card */}
-            <div className="bg-zinc-900/30 p-6 rounded-2xl border border-zinc-900 flex-1 flex flex-col justify-between">
+            <div className="bg-zinc-900/30 p-6 rounded-2xl border border-zinc-900 flex-1 flex flex-col justify-between transition-all duration-300 hover:bg-zinc-900/40 hover:border-amber-500/30 hover:scale-[1.015] transform-gpu">
               <div>
                 <div className="flex items-center gap-2 mb-3">
                   <BookOpen className="w-4 h-4 text-amber-500" />
@@ -321,7 +321,7 @@ export const CarouselModal: React.FC<CarouselModalProps> = ({
             
             {/* Stacked: Discovery and Idol */}
             <div className="flex flex-col gap-4">
-              <div className="bg-zinc-900/30 p-5 rounded-2xl border border-zinc-900 flex flex-col justify-between">
+              <div className="bg-zinc-900/30 p-5 rounded-2xl border border-zinc-900 flex flex-col justify-between transition-all duration-300 hover:bg-zinc-900/40 hover:border-amber-500/30 hover:scale-[1.015] transform-gpu">
                 <div>
                   <div className="flex items-center gap-2 mb-2">
                     <Compass className="w-3.5 h-3.5 text-amber-500/80" />
@@ -333,7 +333,7 @@ export const CarouselModal: React.FC<CarouselModalProps> = ({
                 </div>
               </div>
 
-              <div className="bg-zinc-900/30 p-5 rounded-2xl border border-zinc-900 flex flex-col justify-center min-h-[105px]">
+              <div className="bg-zinc-900/30 p-5 rounded-2xl border border-zinc-900 flex flex-col justify-center min-h-[105px] transition-all duration-300 hover:bg-zinc-900/40 hover:border-amber-500/30 hover:scale-[1.015] transform-gpu">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
                     <Sparkles className="w-3.5 h-3.5 text-amber-500/80" />
@@ -352,7 +352,7 @@ export const CarouselModal: React.FC<CarouselModalProps> = ({
           {/* Bento Box 3: Right Column - Goals, Achievements & Official IDs (col-span-3) */}
           <div className="col-span-1 md:col-span-3 flex flex-col gap-4">
             {/* Objectives / Goals Card (Amber-accented elegant block) */}
-            <div className="bg-amber-500/5 p-5 rounded-2xl border border-amber-500/20">
+            <div className="bg-amber-500/5 p-5 rounded-2xl border border-amber-500/20 transition-all duration-300 hover:bg-amber-500/10 hover:border-amber-500/40 hover:scale-[1.015] transform-gpu">
               <div className="flex items-center gap-2 mb-2">
                 <HelpCircle className="w-3.5 h-3.5 text-amber-400" />
                 <h3 className="text-[10px] font-bold text-amber-400 uppercase tracking-wider">Objetivos</h3>
@@ -363,7 +363,7 @@ export const CarouselModal: React.FC<CarouselModalProps> = ({
             </div>
 
             {/* Achievements Card */}
-            <div className="bg-zinc-900/30 p-5 rounded-2xl border border-zinc-900 flex-1">
+            <div className="bg-zinc-900/30 p-5 rounded-2xl border border-zinc-900 flex-1 transition-all duration-300 hover:bg-zinc-900/40 hover:border-amber-500/30 hover:scale-[1.015] transform-gpu">
               <div className="flex items-center gap-2 mb-3">
                 <Trophy className="w-3.5 h-3.5 text-amber-500" />
                 <h3 className="text-[10px] font-bold text-zinc-400 uppercase tracking-wider">Principais Conquistas</h3>
@@ -384,7 +384,7 @@ export const CarouselModal: React.FC<CarouselModalProps> = ({
                 href={`https://www.cbx.org.br/jogador/${activePlayer.cbxId}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-zinc-950 p-2.5 rounded-lg border border-zinc-900 hover:bg-zinc-900/40 hover:border-amber-500/30 transition-all cursor-pointer group flex flex-col justify-between"
+                className="bg-zinc-950 p-2.5 rounded-lg border border-zinc-900 hover:bg-zinc-900/40 hover:border-amber-500/30 hover:scale-[1.025] transform-gpu transition-all cursor-pointer group flex flex-col justify-between"
               >
                 <div>
                   <p className="text-[9px] text-zinc-500 font-bold uppercase tracking-wider flex items-center gap-1 group-hover:text-zinc-400 transition-colors">
@@ -401,7 +401,7 @@ export const CarouselModal: React.FC<CarouselModalProps> = ({
                 href={`https://ratings.fide.com/profile/${activePlayer.fideId}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-zinc-950 p-2.5 rounded-lg border border-zinc-900 hover:bg-zinc-900/40 hover:border-amber-500/30 transition-all cursor-pointer group flex flex-col justify-between"
+                className="bg-zinc-950 p-2.5 rounded-lg border border-zinc-900 hover:bg-zinc-900/40 hover:border-amber-500/30 hover:scale-[1.025] transform-gpu transition-all cursor-pointer group flex flex-col justify-between"
               >
                 <div>
                   <p className="text-[9px] text-zinc-500 font-bold uppercase tracking-wider flex items-center gap-1 group-hover:text-zinc-400 transition-colors">
