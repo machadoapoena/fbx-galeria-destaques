@@ -161,38 +161,7 @@ export const CarouselModal: React.FC<CarouselModalProps> = ({
         id="carousel-modal-container"
         className="relative w-full max-w-5xl bg-zinc-950 text-zinc-100 rounded-3xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.7),0_0_40px_rgba(0,0,0,0.3)] flex flex-col overflow-hidden z-10 my-4 max-h-[92vh]"
       >
-        {/* Tournament Info Top Bar */}
-        <div className="px-6 md:px-8 py-4 bg-white border-b border-zinc-200 flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            {/* Tournament Logo */}
-            <div className="w-12 h-12 rounded-xl bg-zinc-50 border border-zinc-200 flex items-center justify-center overflow-hidden shrink-0 shadow-sm">
-              <img 
-                src={tournamentLogo || "https://i0.wp.com/fbx.org.br/wp-content/uploads/2022/05/Logo-FBX-1.png?resize=512%2C512"} 
-                alt="Logo do Torneio" 
-                className="w-full h-full object-contain p-1"
-                referrerPolicy="no-referrer"
-                onError={(e) => {
-                  // If image fails, replace with dynamic elegant golden icon representation
-                  e.currentTarget.style.display = 'none';
-                  const parent = e.currentTarget.parentElement;
-                  if (parent) {
-                    const fallback = document.createElement('span');
-                    fallback.className = 'text-amber-500 text-2xl font-bold font-mono';
-                    fallback.innerText = '♞';
-                    parent.appendChild(fallback);
-                  }
-                }}
-              />
-            </div>
-            <span className="text-zinc-800 font-extrabold text-sm md:text-base tracking-widest uppercase font-sans">
-              {tournamentTitle}
-            </span>
-          </div>
-          <div className="flex items-center gap-1.5 bg-zinc-50 px-3 py-1.5 rounded-full border border-zinc-200">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-            <span className="text-[10px] text-zinc-600 font-bold font-mono tracking-wider">MODAL ATIVA</span>
-          </div>
-        </div>
+
 
         {/* Header Section */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 px-6 md:px-8 py-5 border-b border-zinc-900 bg-zinc-950/50">
@@ -210,15 +179,6 @@ export const CarouselModal: React.FC<CarouselModalProps> = ({
                   {activePlayer.city}
                 </span>
               </div>
-            </div>
-            
-            {/* Live Highlight Status Badge */}
-            <div className={`px-3.5 py-1.5 rounded-full border flex items-center gap-2 w-fit ${badgeConfig.badgeClass}`}>
-              <div className={`w-2 h-2 rounded-full ${badgeConfig.dotClass} animate-pulse`}></div>
-              <span className="font-bold text-xs uppercase tracking-wide flex items-center gap-1">
-                {badgeConfig.icon}
-                {badgeConfig.label}
-              </span>
             </div>
           </div>
 
