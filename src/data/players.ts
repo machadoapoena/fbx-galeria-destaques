@@ -3,7 +3,7 @@ import { Player, TournamentHighlight } from '../types';
 export const PLAYERS: Player[] = [
   {
     id: '1',
-    name: 'Leonardo Tomazette',
+    name: 'Leonardo Martins Tomazette',
     photo: 'https://i.imgur.com/Jd0uP3Y.jpeg',
     highlight: TournamentHighlight.CHAMPION,
     title: 'Nenhum',
@@ -12,13 +12,13 @@ export const PLAYERS: Player[] = [
     city: 'Brasília - DF',
     cbxId: '52483',
     fideId: '22733140',
-    trajectory: 'Iniciou sua jornada em torneios escolares e, com uma disciplina invejável, conquistou o título de mestre nacional aos 15 anos. É conhecido por suas análises teóricas profundas e precisão na transição para os finais de jogo, sendo atualmente um dos principais nomes do xadrez brasileiro.',
-    discovery: 'Descobri o xadrez aos 7 anos, assistindo ao meu avô jogar partidas rápidas na praça central da minha cidade natal. Fiquei fascinado pela forma como pequenos pedaços de madeira podiam contar uma história de batalha tão rica.',
-    idol: 'Garry Kasparov, pela sua determinação implacável, combatividade em todas as posições e contribuição imensurável para a teoria das aberturas modernas.',
-    goals: 'Consolidar meu rating acima da marca de 2650 e representar a equipe nacional brasileira na próxima Olimpíada de Xadrez com chances reais de medalha por tabuleiro.',
+    trajectory: 'Em 2015, retomou a prática nas aulas de sua escola e, no ano seguinte, iniciou sua trajetória competitiva, conquistando o vice-campeonato na etapa Cavalo do FIX e, posteriormente, o título da etapa Rei. Desde então, vem evoluindo constantemente, destacando-se com a conquista do Campeonato Brasiliense de 2025 (disputado em 2026). Dono de um estilo de jogo agressivo, tem como objetivo continuar evoluindo e se divertindo no xadrez. Em sua formação, contou com a orientação de Wellington, Jean e do Mestre FIDE Adriano Valle, que tiveram papel fundamental em seu desenvolvimento como enxadrista.',
+    discovery: 'Meus padrinhos me ensinaram os movimentos das peças quando eu tinha 4 anos.',
+    idol: 'Bobby Fischer, pela sua determinação implacável, combatividade em todas as posições e contribuição imensurável para a teoria das aberturas modernas.',
+    goals: 'Continuar evoluindo e me divertir.',
     achievements: [
       'Campeão Brasileiro Absoluto de Xadrez (2025)',
-      'Medalha de Ouro individual no Campeonato Pan-Americano de Equipes'
+      'FIX 2026 - Etapa Rei'
     ],
     tournamentId: 'fbx-cbc-2025',
     supporters: [
@@ -28,22 +28,22 @@ export const PLAYERS: Player[] = [
   },
   {
     id: '2',
-    name: 'Mariana Souza Goulart',
-    photo: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=500&h=500',
+    name: 'Carlos Eduardo de Souza Damasceno Martins',
+    photo: 'https://fbx.org.br/wp-content/uploads/2026/07/Cadsapture.jpg',
     highlight: TournamentHighlight.RUNNER_UP,
-    title: 'WIM (Mestre Internacional Feminina)',
-    rating: 2285,
-    birthDate: '28/08/2001',
-    city: 'Florianópolis - SC',
-    cbxId: '18554',
-    fideId: '2138971',
-    trajectory: 'Considerada uma das mentes mais brilhantes e táticas do xadrez feminino contemporâneo. Mariana subiu rapidamente nos rankings juvenis, acumulando títulos de categorias de base. Seu estilo é extremamente dinâmico, preferindo posições abertas e sacrifícios brilhantes.',
-    discovery: 'Conheci o xadrez aos 9 anos na escola, quando a diretoria instalou tabuleiros de xadrez gigantes no pátio para o intervalo. Fui a primeira da minha turma a aprender a movimentar os cavalos.',
-    idol: 'Judit Polgár, que provou ao mundo que o gênero é irrelevante no tabuleiro, competindo e vencendo os melhores jogadores do planeta de igual para igual.',
-    goals: 'Alcançar as três normas necessárias para o título máximo de WGM (Grande Mestra Feminina) e desenvolver projetos sociais que ensinem xadrez para meninas carentes.',
+    title: 'Nenhum',
+    rating: 1895,
+    birthDate: '14/12/2004',
+    city: 'Brasília - DF',
+    cbxId: '67044',
+    fideId: '22794131',
+    trajectory: 'Iniciou sua trajetória competitiva aos 14 anos, quando disputou seu primeiro torneio em Brasília. Desde então, vem se dedicando intensamente ao xadrez, conquistando resultados expressivos, como o vice-campeonato do Campeonato Brasileiro Escolar Sub-18 de 2021 e o vice-campeonato do Campeonato Brasiliense Absoluto de 2025. Além das competições, encontrou no ensino do xadrez uma grande vocação, compartilhando seus conhecimentos com novos enxadristas. Seu objetivo é continuar evoluindo como jogador e contribuir para o desenvolvimento do esporte, contando com a importante influência de seu treinador Luis Paulo Supi, além do apoio de seus alunos, familiares e da comunidade enxadrística de Brasília.',
+    discovery: 'Meu pai me ensinou a jogar quando eu tinha uns 4 anos e joguei de forma casual até os 14, quando o pai dos meus melhores amigos me levou para um torneio de xadrez.',
+    idol: 'Luis Paulo Supi, que provou ao mundo que o gênero é irrelevante no tabuleiro, competindo e vencendo os melhores jogadores do planeta de igual para igual.',
+    goals: 'Pretendo continuar melhorando no xadrez cada vez mais, e conseguir compartilhar os meus conhecimentos no jogo.',
     achievements: [
-      'Vice-Campeã Brasileira Feminina Profissional (2025)',
-      'Bicampeã Brasileira Universitária Invicta'
+      'Vice Campeão do Campeonato Brasiliense Absoluto de 2025',
+      'Vice Campeão do Campeonato Brasileiro de Xadrez Escolar 2021 Sub 18 Masculino'
     ],
     tournamentId: 'fbx-cbc-2025',
     supporters: [
