@@ -139,7 +139,7 @@ export const CarouselModal: React.FC<CarouselModalProps> = ({
   return (
     <div
       id="carousel-modal-overlay"
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8 bg-white/90 backdrop-blur-md overflow-y-auto"
+      className="fixed inset-0 z-50 flex items-start justify-center p-4 md:p-8 pt-6 md:pt-12 bg-white/90 backdrop-blur-md overflow-y-auto"
       onClick={handleBackdropClick}
     >
       {/* Background Context (Decorative Subtle Checkered Grid) */}
