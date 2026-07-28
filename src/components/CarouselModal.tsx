@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { 
   X, ChevronLeft, ChevronRight, Trophy, Crown, Medal, Award,
   BookOpen, Compass, Sparkles, HelpCircle, Calendar, MapPin, 
-  Hash, Globe, ExternalLink
+  Hash, Globe, ExternalLink, Search
 } from 'lucide-react';
 
 interface CarouselModalProps {
@@ -57,6 +57,32 @@ export const CarouselModal: React.FC<CarouselModalProps> = ({
 }) => {
   const currentIndex = players.findIndex(p => p.id === selectedPlayerId);
   const activePlayer = players[currentIndex === -1 ? 0 : currentIndex];
+
+  // Search and selection state
+  const [searchQuery, setSearchQuery] = React.useState('');
+  const [isDropdownOpen, setIsDropdownOpen] = React.useState(false);
+  const searchContainerRef = useRef<HTMLDivElement>(null);
+
+  // Filter players based on search query
+  const filteredPlayers = players.filter(p =>
+    p.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  // Close search dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        searchContainerRef.current &&
+        !searchContainerRef.current.contains(event.target as Node)
+      ) {
+        setIsDropdownOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   // Key navigation for the carousel modal
   useEffect(() => {
@@ -182,15 +208,101 @@ export const CarouselModal: React.FC<CarouselModalProps> = ({
             </div>
           </div>
 
-          {onClose && (
-            <button
-              onClick={onClose}
-              className="self-end sm:self-center w-10 h-10 rounded-full border border-zinc-800 flex items-center justify-center hover:bg-zinc-900 text-zinc-400 hover:text-white transition-all shadow-inner"
-              title="Fechar"
-            >
-              <X className="w-5 h-5" />
-            </button>
-          )}
+          {/* Search Input Box */}
+          <div className="flex items-center gap-3">
+            <div ref={searchContainerRef} className="relative w-full sm:w-64">
+              <div className="relative">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-zinc-500 pointer-events-none" />
+                <input
+                  type="text"
+                  placeholder="Pesquisar atleta..."
+                  value={searchQuery}
+                  onChange={(e) => {
+                    setSearchQuery(e.target.value);
+                    setIsDropdownOpen(true);
+                  }}
+                  onFocus={() => setIsDropdownOpen(true)}
+                  className="w-full pl-9 pr-8 py-1.5 text-xs bg-zinc-900/60 hover:bg-zinc-900/80 text-zinc-100 rounded-xl border border-zinc-800 hover:border-zinc-700 focus:border-amber-500/50 focus:bg-zinc-900 focus:outline-none transition-all placeholder-zinc-500"
+                />
+                {searchQuery && (
+                  <button
+                    onClick={() => {
+                      setSearchQuery('');
+                      setIsDropdownOpen(false);
+                    }}
+                    className="absolute right-2.5 top-1/2 -translate-y-1/2 p-0.5 hover:bg-zinc-800 rounded-full text-zinc-500 hover:text-zinc-300 transition-colors"
+                  >
+                    <X className="w-3 h-3" />
+                  </button>
+                )}
+              </div>
+
+              {/* Search dropdown results */}
+              <AnimatePresence>
+                {isDropdownOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 5, scale: 0.98 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: 5, scale: 0.98 }}
+                    transition={{ duration: 0.15 }}
+                    className="absolute right-0 top-full mt-2 w-full bg-zinc-950 border border-zinc-900 rounded-xl shadow-[0_12px_30px_rgba(0,0,0,0.8)] z-50 overflow-hidden max-h-64 overflow-y-auto"
+                  >
+                    {filteredPlayers.length > 0 ? (
+                      <div className="py-1">
+                        {filteredPlayers.map((player) => {
+                          const isSelected = player.id === selectedPlayerId;
+                          return (
+                            <button
+                              key={player.id}
+                              onClick={() => {
+                                onSelectPlayer(player.id);
+                                setSearchQuery('');
+                                setIsDropdownOpen(false);
+                              }}
+                              className={`w-full px-3 py-2 flex items-center gap-3 text-left transition-all ${
+                                isSelected
+                                  ? 'bg-amber-500/10 text-amber-500 border-l-2 border-amber-500 font-medium'
+                                  : 'text-zinc-300 hover:bg-zinc-900/60'
+                              }`}
+                            >
+                              <div className="w-7 h-7 rounded-full bg-zinc-900 overflow-hidden border border-zinc-800 shrink-0">
+                                <img
+                                  src={player.photo}
+                                  alt={player.name}
+                                  className="w-full h-full object-cover"
+                                  referrerPolicy="no-referrer"
+                                />
+                              </div>
+                              <div className="flex-1 min-w-0">
+                                <p className="text-[11px] font-bold truncate">{player.name}</p>
+                                <p className="text-[9px] font-semibold text-zinc-500 font-mono">
+                                  {player.rating} ELO
+                                </p>
+                              </div>
+                            </button>
+                          );
+                        })}
+                      </div>
+                    ) : (
+                      <div className="px-4 py-4 text-center text-zinc-500">
+                        <p className="text-xs font-medium">Nenhum atleta encontrado</p>
+                      </div>
+                    )}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {onClose && (
+              <button
+                onClick={onClose}
+                className="w-10 h-10 rounded-full border border-zinc-800 flex items-center justify-center hover:bg-zinc-900 text-zinc-400 hover:text-white transition-all shadow-inner shrink-0"
+                title="Fechar"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            )}
+          </div>
         </div>
 
         {/* Content Bento Grid */}
